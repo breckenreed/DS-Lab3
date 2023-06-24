@@ -13,12 +13,46 @@ logging-service працюватиме у підмережі докера, то�
 У папці ``logging_service_alt``
 
 ```
+docker network create hazelcast-network-1
+
+docker build -t logging-service_alt .
+
 docker run -d -p 8011:8001 --env "PYTHONUNBUFFERED=1" --name logging-serviceNEW1 --network hazelcast-network-1 logging-service_alt <br />
 
 docker run -d -p 8012:8001 --env "PYTHONUNBUFFERED=1" --name logging-serviceNEW2 --network hazelcast-network-1 logging-service_alt <br />
 
 docker run -d -p 8013:8001 --env "PYTHONUNBUFFERED=1" --name logging-serviceNEW3 --network hazelcast-network-1 logging-service_alt <br />
 ```
+якщо контейнери кластеру Hazelcast та Hazelcast MC наразі не запущені, то потрібно запуситити і їх: <br />
+
+```
+docker run \
+    -d \
+    --name firstmember \
+    --network hazelcast-network-1 \
+    -e HZ_CLUSTERNAME=dev \
+    -p 5701:5701 hazelcast/hazelcast:latest-snapshot 
+
+second
+docker run \
+    -d \
+    --name secondmember --network hazelcast-network-1 \
+    -e HZ_CLUSTERNAME=dev \
+    -p 5702:5701 hazelcast/hazelcast:latest-snapshot
+
+third
+docker run \
+    -d \
+    --name thirdmember --network hazelcast-network-1 \
+    -e HZ_CLUSTERNAME=dev \
+    -p 5703:5701 hazelcast/hazelcast:latest-snapshot
+
+docker run \
+    -d \
+    --network hazelcast-network-1 \
+    -p 8080:8080 hazelcast/management-center:latest-snapshot
+```
+
 
 <img width="958" alt="image" src="https://github.com/breckenreed/DS-Lab3/assets/62158298/f93921cd-f45b-4ab7-924e-21422ed54966">
 
