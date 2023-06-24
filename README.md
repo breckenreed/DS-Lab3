@@ -59,7 +59,9 @@ docker run \
 
 Через HTTP POST записати 10 повідомлень msg1-msg10 через facade-service <br />
 
+<img width="779" alt="image" src="https://github.com/breckenreed/DS-Lab3/assets/62158298/6517bb02-a3a6-4a5c-984c-bb80f438067e">
 
+Вміст ``data.json`` почергово змінювався для кожного повідомлення.  <br />
 
 
 
