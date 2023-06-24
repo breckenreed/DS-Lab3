@@ -63,6 +63,13 @@ docker run \
 
 Вміст ``data.json`` почергово змінювався для кожного повідомлення.  <br />
 
+Бачимо, що наші logging-service отримали повідомлення:<br />
+<img width="1189" alt="image" src="https://github.com/breckenreed/DS-Lab3/assets/62158298/376be39c-b8a8-41f1-b627-97f966b8a370"><br />
+<img width="1198" alt="image" src="https://github.com/breckenreed/DS-Lab3/assets/62158298/07743584-6bbc-49f8-a6f9-558d6a6231e2"><br />
+<img width="1184" alt="image" src="https://github.com/breckenreed/DS-Lab3/assets/62158298/b83bd9f7-7d47-4c16-986e-d4a8d95d302a"><br />
+
+Також повідомлення успішно завантажилися у мапу:
+<img width="1234" alt="image" src="https://github.com/breckenreed/DS-Lab3/assets/62158298/37d4533d-a027-42ce-99d0-ceabceab7fc5">
 
 
 
